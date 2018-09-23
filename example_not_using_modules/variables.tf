@@ -7,9 +7,6 @@ variable "root_domain" {
 }
 
 variable "bucket_name" {
-  default = "site-foo.example.com"
+  default = "site-example.com"
 }
 
-variable "not_found_file_path" {
-  default  = "/404.html"
-}

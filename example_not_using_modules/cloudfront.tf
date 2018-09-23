@@ -1,14 +1,11 @@
-# CloudFrontの配信元の識別子
 locals {
   s3_origin_id = "s3-origin-${var.site_domain}"
 }
 
-# PrivateなS3 Bucketにアクセスするためにオリジンアクセスアイデンティティを利用する
 resource "aws_cloudfront_origin_access_identity" "site" {
   comment = "${var.site_domain}"
 }
 
-# CloudFrontのディストリビューション設定
 resource "aws_cloudfront_distribution" "site" {
   aliases = ["${var.site_domain}"]
   origin {

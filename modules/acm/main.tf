@@ -6,7 +6,7 @@ resource "aws_acm_certificate" "acm_cert" {
 }
 
 resource "aws_route53_record" "acm_cert" {
-  # "example.com", "*.example.com"の2つを登録するのでcount=2
+  # Count=2, because we need to valdiate both "example.com" and "*.example.com".
   count = 2
   name = "${lookup(aws_acm_certificate.acm_cert.domain_validation_options[count.index], "resource_record_name")}"
   type = "${lookup(aws_acm_certificate.acm_cert.domain_validation_options[count.index], "resource_record_type")}"

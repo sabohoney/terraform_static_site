@@ -1,7 +1,3 @@
-# ---------------
-# route53.tf
-# ---------------
-
 resource "aws_route53_zone" "site_zone" {
   name = "${var.root_domain}"
 
